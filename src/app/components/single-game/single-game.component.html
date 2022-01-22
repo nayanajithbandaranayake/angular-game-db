@@ -1,0 +1,48 @@
+<main class="single-game">
+   <app-loading [show]="isLoading" msg="Fetching game data..."></app-loading>
+  <img
+    src="{{ game.background_image }}"
+    alt="{{ game.name }} background image"
+    class="background-img"
+  />
+  <div class="single-game__content-container">
+    <h1 class="single-game__game-title">{{ game.name }}</h1>
+    <app-stars [rating]="game.rating"></app-stars>
+    <div class="single-game__game-desc" [innerHTML]="game.description"></div>
+    <span class="show-more" *ngIf="showShowMore" (click)="showMoreOrLess()">
+      {{ game.description.length > 280 ? "Show Less" : "Show More" }}
+    </span>
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <p class="tab-title">Ratings</p>
+        </ng-template>
+        <ng-template matTabContent>
+          <div class="ratings-container">
+            <div class="ratings-content" *ngFor="let rate of game.ratings">
+              <h4>{{ rate.title }}</h4>
+              <div class="ratings">
+                <span [style]="{ width: rate.percent + '%' }"></span>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <p class="tab-title">ScreenShots</p>
+        </ng-template>
+        <ng-template matTabContent>
+          <div class="screen-shot-container">
+            <img
+              class="screen-shot"
+              *ngFor="let screenShot of game.short_screenshots"
+              src="{{ screenShot.image }}"
+              alt="{{ screenShot.id }}"
+            />
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</main>

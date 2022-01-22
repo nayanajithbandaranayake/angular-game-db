@@ -1,0 +1,60 @@
+.home {
+  padding: 3em;
+  margin-top: 6em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: 20em;
+  position: relative;
+  min-height: 100vh;
+  width: calc(100vw - 20em);
+  .game-card {
+    color: #fff;
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+    margin-bottom: 2em;
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: 50% auto 20%;
+    height: 28em;
+    width: 19em;
+    border-radius: 0.89em;
+    background: #070218;
+    overflow: hidden;
+    position: relative;
+    // padding: 1em;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0.5em 0.3em 1em 0.3em rgb(27, 27, 27);
+    &__image {
+      grid-row: 1;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    &__platforms {
+      grid-row: 3;
+      padding: 0 1em;
+      flex-wrap: wrap;
+      span {
+        display: inline-block;
+        padding: 5px;
+        background: black;
+        border-radius: 3px;
+        color: #fff;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    &__content {
+      grid-row: 2;
+      padding: 1em;
+    }
+    &:hover {
+      box-shadow: 0.5em 0.3em 3em 1em rgb(27, 27, 27);
+      transform: translateY(-0.5em);
+    }
+  }
+}

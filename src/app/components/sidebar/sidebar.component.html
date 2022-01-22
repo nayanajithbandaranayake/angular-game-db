@@ -1,0 +1,16 @@
+<aside class="sidebar">
+  <app-loading [show]="isLoading" msg="Fetching Genres..."></app-loading>
+  <div class="title">
+    <h3>Filter By Genre</h3>
+    <button mat-button color="warn" (click)="clearGenre()">Clear</button>
+  </div>
+  <ul>
+    <li
+      *ngFor="let genre of genres"
+      (click)="searchByGenre(genre.id.toString())"
+    >
+      {{ genre.name }}
+      <span>{{ genre.games_count }}</span>
+    </li>
+  </ul>
+</aside>

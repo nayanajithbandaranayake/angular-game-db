@@ -1,0 +1,31 @@
+<header class="navbar">
+  <div (click)="clearSearch()" style="cursor: pointer">
+    <span class="navbar__logo"> Angular Game DB </span>
+  </div>
+  <div class="navbar__search-container">
+    <form (ngSubmit)="searchGames()">
+      <input
+        type="text"
+        placeholder="Search Video Games..."
+        name="search"
+        [(ngModel)]="search"
+      />
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="search-btn"
+      >
+        Search
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="clearSearch()"
+        class="clear-btn"
+      >
+        Clear Search
+      </button>
+    </form>
+  </div>
+</header>
